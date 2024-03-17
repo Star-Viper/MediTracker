@@ -1,0 +1,158 @@
+.welcome-to-health {
+  position: absolute;
+  top: 257px;
+  left: 380px;
+  font-family: var(--font-lobster);
+  display: inline-block;
+  width: 1063px;
+  height: 138px;
+}
+.your-complete-health {
+  position: absolute;
+  top: 712px;
+  left: 328px;
+  font-size: var(--font-size-45xl);
+  color: #f9f9f9;
+  display: inline-block;
+  width: 1168px;
+  height: 81px;
+}
+.blank-line {
+  margin: 0;
+}
+.ehr-model {
+  margin: 0;
+  font-size: var(--font-size-45xl);
+}
+.keep-all-your-health-informati {
+  margin: 0;
+  color: var(--color-gray);
+}
+.ehr-model-effortless-container {
+  position: absolute;
+  top: 123px;
+  left: 101px;
+  display: inline-block;
+  width: 906.75px;
+}
+.early-intervention-for {
+  font-weight: 600;
+}
+.MediTracker-goes-beyond-just {
+  margin: 0;
+  color: var(--color-black);
+}
+.disease-detection-early-container {
+  position: absolute;
+  top: 1153px;
+  left: 788px;
+  display: inline-block;
+  width: 907px;
+  height: 3118px;
+}
+.beautiful-young-female-doctor,
+.side-view-of-smiley-doctors-po {
+  position: absolute;
+  top: 85px;
+  left: 1089px;
+  border-radius: var(--br-61xl);
+  width: 605.68px;
+  height: 909.24px;
+  object-fit: cover;
+}
+.side-view-of-smiley-doctors-po {
+  top: 4630px;
+}
+.arrangement-of-medical-objects,
+.medical-stethoscope-on-a-white,
+.specialist-rate-auditorium-cur {
+  position: absolute;
+  top: 2364px;
+  left: 1089px;
+  border-radius: var(--br-61xl);
+  width: 605.68px;
+  height: 907.05px;
+  object-fit: cover;
+}
+.medical-stethoscope-on-a-white,
+.specialist-rate-auditorium-cur {
+  top: 1228px;
+  left: 101px;
+  height: 909.24px;
+}
+.specialist-rate-auditorium-cur {
+  top: 3537px;
+  width: 643.28px;
+  height: 909px;
+}
+.MediTracker-logo {
+  position: absolute;
+  top: 4003.01px;
+  left: 301.01px;
+  width: 189.98px;
+  height: 189.98px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+.desktop-2 {
+  position: absolute;
+  top: 1131px;
+  left: 0;
+  background-color: #ededed;
+  width: 1823px;
+  height: 5635px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-21xl-8);
+  color: var(--color-red-200);
+}
+.MediTracker-logo-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 19.46px;
+  background-color: var(--color-red-100);
+  width: 206px;
+  height: 206px;
+}
+.vector-icon {
+  position: absolute;
+  height: 90.88%;
+  width: 90.88%;
+  top: 4.56%;
+  right: 4.56%;
+  bottom: 4.56%;
+  left: 4.56%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.MediTracker1 {
+  position: absolute;
+  top: 81.19px;
+  left: 9.39px;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 187.21px;
+  height: 43.62px;
+}
+.MediTracker-logo1 {
+  position: absolute;
+  top: 452px;
+  left: 809px;
+  width: 206px;
+  height: 206px;
+  font-size: 28.18px;
+  font-family: var(--font-monomaniac-one);
+}
+.MediTracker {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(180deg, #000, #282323);
+  height: 6766px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 110px;
+  color: var(--color-red-100);
+  font-family: var(--font-crimson-text);
+}

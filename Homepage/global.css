@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-monomaniac-one: "Monomaniac One";
+  --font-crimson-text: "Crimson Text";
+  --font-lobster: Lobster;
+
+  /* font sizes */
+  --font-size-21xl-8: 40.8px;
+  --font-size-45xl: 64px;
+
+  /* Colors */
+  --color-red-100: #ff1e1e;
+  --color-red-200: #ff0606;
+  --color-black: #000;
+  --color-gray: #0e0e0e;
+
+  /* Border radiuses */
+  --br-61xl: 80px;
+}
