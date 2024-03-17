@@ -10,7 +10,7 @@ export default function Navbar() {
         <>
             <nav className="navbar navbar-expand-lg" style={{ maxHeight: "50px" }}>
                 <div className="container-fluid" style={{ background: "rgba(255, 255, 255, 0.8)" }}>
-                    <a className="navbar-brand fs-4 fw-bolder text-primary" href="#">HealthTrace</a>
+                    <a className="navbar-brand fs-4 fw-bolder text-primary" href="#">MediTracker</a>
                     <button className="navbar-toggler " style={{ "border": "2px solid black" }} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon "></span>
                     </button>
