@@ -8,6 +8,8 @@ contract Fake {
     enum UserRole {
         None,
         Manufacturer,
+        Distributor,
+        Retailer,
         User
     }
 
@@ -20,12 +22,7 @@ contract Fake {
     }
 
     struct Product {
-        string prd_name;
         string prd_id;
-        string batch_no;
-        uint256 manufacturingDate;
-        uint256 expirationDate;
-        string qrCode;
     }
 
     mapping(address => User) public users;
@@ -33,18 +30,10 @@ contract Fake {
 
     event UserAdded(address indexed userAddress, string name, UserRole role);
     event ProductUploaded(
-        string prd_id,
-        string prd_name,
-        uint256 manufacturingDate,
-        uint256 expirationDate,
-        string qrCode
+        string prd_id
     );
     struct ProductInfo {
         string prd_id;
-        string prd_name;
-        string batch_no;
-        uint256 manufacturingDate;
-        uint256 expirationDate;
     }
 
     modifier onlyAdmin() {
@@ -70,7 +59,7 @@ contract Fake {
         string memory password,
         UserRole role
     ) external {
-        if (role == UserRole.User) {
+        if (role == UserRole.User ) {
             require(
                 users[msg.sender].role == UserRole.None ||
                     users[msg.sender].role == UserRole.Manufacturer,
@@ -78,24 +67,23 @@ contract Fake {
             );
             users[msg.sender] = User(msg.sender, name, password, role);
             emit UserAdded(msg.sender, name, role);
-        } else if (role == UserRole.Manufacturer) {
+        } else if (role == UserRole.Manufacturer || role == UserRole.Distributor || role == UserRole.Retailer) {
             require(
                 msg.sender == admin,
                 "Only admin can add users with Manufacturer role"
             );
             require(
-                users[msg.sender].role == UserRole.None ||
-                    users[msg.sender].role == UserRole.Manufacturer,
+                users[msg.sender].role == UserRole.None || users[msg.sender].role == UserRole.Manufacturer || users[msg.sender].role == UserRole.Distributor || users[msg.sender].role == UserRole.Retailer,
                 "User already exists"
             );
-            address manufacturerAddress = userAddress;
-            users[manufacturerAddress] = User(
-                manufacturerAddress,
+            address Address = userAddress;
+            users[Address] = User(
+                Address,
                 name,
                 password,
                 role
             );
-            emit UserAdded(manufacturerAddress, name, role);
+            emit UserAdded(Address, name, role);
         }
     }
 
@@ -117,58 +105,30 @@ contract Fake {
     }
 
     function uploadProduct(
-        string memory prd_id,
-        string memory prd_name,
-        string memory batch_no,
-        string memory qrCode
+        string memory prd_id
     ) external onlyManufacturer {
-        uint256 manufacturingDate = block.timestamp;
-        uint256 expirationDate = block.timestamp + 365 days;
 
         products[prd_id] = Product(
-            prd_name,
-            prd_id,
-            batch_no,
-            manufacturingDate,
-            expirationDate,
-            qrCode
+            prd_id
         );
 
-        // Push the new product ID into the array
         productIds.push(prd_id);
 
         emit ProductUploaded(
-            prd_id,
-            prd_name,
-            manufacturingDate,
-            expirationDate,
-            qrCode
+            prd_id
         );
     }
 
     function isReal(
-        string memory prd_id_or_qrCode
-    ) external view returns (bool, ProductInfo memory) {
+        string memory prd_id
+    ) external view returns (bool) {
         for (uint i = 0; i < productIds.length; i++) {
             if (
-                keccak256(abi.encodePacked(productIds[i])) ==
-                keccak256(abi.encodePacked(prd_id_or_qrCode)) ||
-                keccak256(abi.encodePacked(products[productIds[i]].qrCode)) ==
-                keccak256(abi.encodePacked(prd_id_or_qrCode))
+                keccak256(abi.encodePacked(productIds[i])) == keccak256(abi.encodePacked(prd_id))
             ) {
-                Product storage product = products[productIds[i]];
-                return (
-                    true,
-                    ProductInfo(
-                        product.prd_id,
-                        product.prd_name,
-                        product.batch_no,
-                        product.manufacturingDate,
-                        product.expirationDate
-                    )
-                );
+                return true;
             }
         }
-        return (false, ProductInfo("", "", "", 0, 0));
+        return false;
     }
 }
